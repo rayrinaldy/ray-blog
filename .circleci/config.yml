@@ -17,6 +17,9 @@ jobs:
           name: Build
           command: npm run build
       - run:
+          name: Pull
+          command: git pull https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
+      - run:
           name: Deploy
           command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
       - save_cache:
